@@ -7,7 +7,7 @@ import javax.ws.rs.Path;
  * @author Mincong Huang
  * @since 1.0
  */
-@Path("ping")
+@Path("/ping")
 public class PingResource {
 
   @HEAD
