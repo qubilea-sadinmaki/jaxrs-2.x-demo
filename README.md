@@ -17,3 +17,10 @@ Module | Description
 [5]: https://mincong.io/2020/03/15/jaxrs-async-processing/
 [travis]: https://travis-ci.org/mincong-h/jaxrs-2.x-demo
 [travis-img]: https://travis-ci.org/mincong-h/jaxrs-2.x-demo.svg?branch=master
+
+Api tests with Robot Framework can be run as followed.
+1. Open robot-framework folder in terminal.
+2. On terminal : python -m venv venv
+3. Then: source venv/bin/activate
+4. Then: pip install -r ./requirements.txt
+5. then: robot ./tests/testSuite1.robot
