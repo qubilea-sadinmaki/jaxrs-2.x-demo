@@ -12,7 +12,7 @@ Library  Process
 
 *** Variables ***
 ${baseUrl}  http://localhost:8080/
-${JAVA_DIR}    ${CURDIR}../../../quickstart
+${JAVA_DIR}    ${CURDIR}../../../../quickstart
 
 *** Test Cases ***
 TestPing

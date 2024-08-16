@@ -16,3 +16,7 @@ robot-framework/log.html
 robot-framework/log.html
 robot-framework/output.xml
 robot-framework/report.html
+/test/robot-framework/venv
+test/robot-framework/log.html
+test/robot-framework/output.xml
+test/robot-framework/report.html
