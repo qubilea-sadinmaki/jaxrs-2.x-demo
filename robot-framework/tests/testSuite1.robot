@@ -21,7 +21,7 @@ TestPing
     ${response}=  Head On Session    ping    /ping
     Should Be Equal As Strings    ${response.status_code}  204
 
-TestPong
+TestGetJson
     [Documentation]  Test the pong endpoint (json)
     Create Session    pong    http://localhost:8080
     ${response}=  Get On Session    pong    /pong
@@ -30,15 +30,36 @@ TestPong
     Json should have node with value    ${response.json()}    $.name    jon doe
     Json should have node with value    ${response.json()}    $.age    22 
 
-TestPingPong
+TestGetXML
     [Documentation]  Test the pingpong endpoint (xml)
     Create Session    pingpong    http://localhost:8080
-    ${response}=  Get On Session    pingpong    /pingpong/getpingpong
+    ${response}=  Get On Session    pingpong    /pingpong/get
     Should Be Equal As Strings    ${response.status_code}  200
     ${xml}=    Parse Xml    ${response.text}
     Xml should have node with value    ${xml}    city    chicago
     Xml should have node with value    ${xml}    name    jon doe
     Xml should have node with value    ${xml}    age    22
+
+TestPostString
+    [Documentation]  Test the pingpong endpoint (string)
+    ${name}=  Set Variable    Myname
+    Create Session    pingpong    http://localhost:8080
+    ${response}=  Post On Session    pingpong    /pingpong/set/${name}
+
+    Should Be Equal As Strings    ${response.status_code}  200
+    Should Be Equal As Strings    ${response.text}  Your name is ${name}
+    Log    ${response.text}
+
+TestPostTwoStrings
+    [Documentation]  Test the pingpong endpoint (string)
+    ${firstname}=  Set Variable    Myfirstname
+    ${lastname}=  Set Variable    Mylastname
+    Create Session    pingpong    http://localhost:8080
+    ${response}=  Post On Session    pingpong    /pingpong/settwo/${firstname}/${lastname}
+
+    Should Be Equal As Strings    ${response.status_code}  200
+    Should Be Equal As Strings    ${response.text}  Your name is ${firstname} ${lastname}
+    Log    ${response.text}
 
 *** Keywords ***
 Setup suite
