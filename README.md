@@ -1,11 +1,16 @@
 This project is a demo about testing JAX-RS RESTful apis.
+Api tests with playwright can be run as followed.
+    1. Open plawright folder(test/playwright) in terminal
+    2. Then: npx playwright test
 
 Api tests with Robot Framework can be run as followed.
-1. Open robot-framework folder in terminal.
-2. On terminal : python -m venv venv
-3. Then: source venv/bin/activate
-4. Then: pip install -r ./requirements.txt
-5. then: robot ./tests/testSuite1.robot
+    1. Open robot-framework folder in terminal.
+    2. On terminal : python -m venv venv
+    3. Then: source venv/bin/activate
+    4. Then: pip install -r ./requirements.txt
+    5. then: robot ./tests/testSuite1.robot
+    Steps 2 and 4 only have do once.
+
 
 
 # jaxrs-demo-2.x [![Build Status][travis-img]][travis]

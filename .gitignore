@@ -21,3 +21,6 @@ test/robot-framework/log.html
 test/robot-framework/output.xml
 test/robot-framework/report.html
 /test/playwright/tests-examples
+test/report.html
+test/log.html
+test/output.xml
