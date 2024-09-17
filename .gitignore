@@ -12,15 +12,7 @@ buildNumber.properties
 !/.mvn/wrapper/maven-wrapper.jar
 **.DS_Store
 /robot-framework/venv
-robot-framework/log.html
-robot-framework/log.html
-robot-framework/output.xml
-robot-framework/report.html
 /test/robot-framework/venv
-test/robot-framework/log.html
-test/robot-framework/output.xml
-test/robot-framework/report.html
 /test/playwright/tests-examples
-test/report.html
-test/log.html
-test/output.xml
+*.html
+*.xml
