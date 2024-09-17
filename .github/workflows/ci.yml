@@ -40,5 +40,5 @@ jobs:
       - name: Upload Test Report
         uses: actions/upload-artifact@v4.3.1
         with:
-          name: rf-results
+          name: rf-reports
           path: rf-reports/
