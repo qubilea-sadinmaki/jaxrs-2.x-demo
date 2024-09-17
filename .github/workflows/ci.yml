@@ -25,7 +25,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - name: Start Java application
-        run: mvn clean install && java -jar $GITHUB_WORKSPACE/quickstart/target/jaxrs-quickstart-1.0-SNAPSHOT-jar-with-dependencies.jar
+        run: mvn -B -q clean install -DskipTests -f quickstart/pom.xml
 
       - name: Setup Python
         uses: actions/setup-python@v5.0.0
