@@ -2,8 +2,9 @@
 Documentation
 ...  This test suite tests endpoints of a RESTful web service that returns JSON and XML responses.
 ...  Rest apis on jaxrs-2.x-demo are implemented using JAX-RS.
-Suite Setup    Setup suite
-Suite Teardown    Teardown suite
+# ...  Uncomment setup and teardown to start and stop the java application locally
+# Suite Setup    Setup suite
+# Suite Teardown    Teardown suite
 Library  DateTime
 Library  RequestsLibrary
 Library  JSONLibrary
