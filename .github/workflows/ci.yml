@@ -41,4 +41,4 @@ jobs:
         uses: actions/upload-artifact@v4.3.1
         with:
           name: rf-results
-          path: $GITHUB_WORKSPACE/rf-reports/
+          path: rf-reports/
