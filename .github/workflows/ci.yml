@@ -35,7 +35,7 @@ jobs:
           pip install -r test/robot-framework/requirements.txt
 
       - name: Run Tests
-        run: $GITHUB_WORKSPACE/.venv/bin/python3.12 -m robot --outputdir $GITHUB_WORKSPACE/robot-framework-reports robot-framework/tests/dummy.robot
+        run: $GITHUB_WORKSPACE/.venv/bin/python3.12 -m robot --outputdir $GITHUB_WORKSPACE/robot-framework-reports test/robot-framework/tests/dummy.robot
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v4.3.1
