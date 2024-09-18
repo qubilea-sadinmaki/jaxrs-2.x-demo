@@ -55,7 +55,9 @@ jobs:
           pip install -r test/robot-framework/requirements.txt
 
       - name: Run Tests
-        run: $GITHUB_WORKSPACE/.venv/bin/python3.12 -m robot --outputdir $GITHUB_WORKSPACE/rf-reports/ test/robot-framework/tests/
+        env:
+          APP_URL: "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}:8080/"
+        run: $GITHUB_WORKSPACE/.venv/bin/python3.12 -m robot --variable BASE_URL:${{ env.APP_URL }} --outputdir $GITHUB_WORKSPACE/rf-reports/ test/robot-framework/tests/testSuite1.robot
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v4.3.1

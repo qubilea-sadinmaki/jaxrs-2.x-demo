@@ -12,19 +12,19 @@ Library  XML
 Library  Process
 
 *** Variables ***
-${baseUrl}  http://localhost:8080/
+${BASE_URL}  http://localhost:8080/
 ${JAVA_DIR}    ${CURDIR}../../../../quickstart
 
 *** Test Cases ***
 TestPing
     [Documentation]  Test the ping endpoint (empty)
-    Create Session    ping    ${baseUrl}
+    Create Session    ping    ${BASE_URL}
     ${response}=  Head On Session    ping    /ping
     Should Be Equal As Strings    ${response.status_code}  204
 
 TestGetJson
     [Documentation]  Test the pong endpoint (json)
-    Create Session    pong    http://localhost:8080
+    Create Session    pong    ${BASE_URL}
     ${response}=  Get On Session    pong    /pong
     Should Be Equal As Strings    ${response.status_code}  200
     Json should have node with value    ${response.json()}    $.city    chicago
@@ -33,7 +33,7 @@ TestGetJson
 
 TestGetXML
     [Documentation]  Test the pingpong endpoint (xml)
-    Create Session    pingpong    http://localhost:8080
+    Create Session    pingpong    ${BASE_URL}
     ${response}=  Get On Session    pingpong    /pingpong/get
     Should Be Equal As Strings    ${response.status_code}  200
     ${xml}=    Parse Xml    ${response.text}
@@ -44,7 +44,7 @@ TestGetXML
 TestPostString
     [Documentation]  Test the pingpong endpoint (string)
     ${name}=  Set Variable    Myname
-    Create Session    pingpong    http://localhost:8080
+    Create Session    pingpong    ${BASE_URL}
     ${response}=  Post On Session    pingpong    /pingpong/set/${name}
 
     Should Be Equal As Strings    ${response.status_code}  200
@@ -55,7 +55,7 @@ TestPostTwoStrings
     [Documentation]  Test the pingpong endpoint (string)
     ${firstname}=  Set Variable    Myfirstname
     ${lastname}=  Set Variable    Mylastname
-    Create Session    pingpong    http://localhost:8080
+    Create Session    pingpong    ${BASE_URL}
     ${response}=  Post On Session    pingpong    /pingpong/settwo/${firstname}/${lastname}
 
     Should Be Equal As Strings    ${response.status_code}  200
