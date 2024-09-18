@@ -33,7 +33,7 @@ jobs:
           mvn -B -q clean install -DskipTests -f exception/pom.xml
           mvn -B -q clean install -DskipTests -f async/pom.xml
 
-      - name: Java App Install
+      - name: Java App Scripts
         run: | 
           mvn clean verify -f quickstart/pom.xml
           mvn clean verify -f http-methods/pom.xml
@@ -41,6 +41,12 @@ jobs:
           mvn clean verify -f legacy/pom.xml
           mvn clean verify -f exception/pom.xml
           mvn clean verify -f async/pom.xml
+
+      - name: Java Install
+        run: |
+          cd quickstart  
+          mvn clean install
+          java -jar target/jaxrs-quickstart-1.0-SNAPSHOT-jar-with-dependencies.jar
 
       - name: Setup Python
         uses: actions/setup-python@v5.0.0
