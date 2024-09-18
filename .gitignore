@@ -16,3 +16,4 @@ buildNumber.properties
 /test/playwright/tests-examples
 *.html
 *.xml
+.github/ci_ai.yml
