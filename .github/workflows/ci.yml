@@ -24,20 +24,16 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Before Java App Install
+      - name: Java App Install
         run: | 
-          mvn -B -q clean install -DskipTests -f quickstart/pom.xml
-
-      - name: Java App Scripts
-        run: | 
-          mvn clean verify -f quickstart/pom.xml
+          sh quickstart/start.sh
 
       - name: Setup Python
         uses: actions/setup-python@v5.0.0
         with:
           python-version: 3.12.2
 
-      - name: Setup Workspace
+      - name: Setup RF and libraries
         run: |
           python -m venv .venv
           source .venv/bin/activate
