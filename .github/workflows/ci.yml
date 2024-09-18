@@ -24,8 +24,23 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Start Java application
-        run: mvn -B -q clean install -DskipTests -f quickstart/pom.xml
+      - name: Before Java App Install
+        run: | 
+          mvn -B -q clean install -DskipTests -f quickstart/pom.xml
+          mvn -B -q clean install -DskipTests -f http-methods/pom.xml
+          mvn -B -q clean install -DskipTests -f jaxrs-params/pom.xml
+          mvn -B -q clean install -DskipTests -f legacy/pom.xml
+          mvn -B -q clean install -DskipTests -f exception/pom.xml
+          mvn -B -q clean install -DskipTests -f async/pom.xml
+
+      - name: Java App Install
+        run: | 
+          mvn clean verify -f quickstart/pom.xml
+          mvn clean verify -f http-methods/pom.xml
+          mvn clean verify -f jaxrs-params/pom.xml
+          mvn clean verify -f legacy/pom.xml
+          mvn clean verify -f exception/pom.xml
+          mvn clean verify -f async/pom.xml
 
       - name: Setup Python
         uses: actions/setup-python@v5.0.0
