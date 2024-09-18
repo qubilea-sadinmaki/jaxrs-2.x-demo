@@ -26,7 +26,8 @@ jobs:
           distribution: 'temurin'
       - name: Java App Install
         run: | 
-          sh quickstart/start.sh
+          cd quickstart
+          sh start.sh
 
       - name: Setup Python
         uses: actions/setup-python@v5.0.0
